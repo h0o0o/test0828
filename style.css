@@ -1,0 +1,248 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+.header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.city-selector {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.city-selector select {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 50px;
+    background: white;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.city-selector select:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+}
+
+.city-selector button {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.city-selector button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.city-selector button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.weather-container {
+    padding: 30px;
+}
+
+.weather-card {
+    text-align: center;
+}
+
+.weather-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.weather-header p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.temperature .unit {
+    font-size: 2rem;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+.weather-icon {
+    text-align: center;
+}
+
+.weather-icon i {
+    font-size: 3rem;
+    color: #ffa726;
+    margin-bottom: 10px;
+}
+
+.weather-icon p {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+    background: #e3f2fd;
+}
+
+.detail-item i {
+    font-size: 1.5rem;
+    color: #4facfe;
+    width: 30px;
+}
+
+.detail-item .label {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.detail-item span:last-child {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.loading, .error {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+}
+
+.loading i {
+    font-size: 2rem;
+    color: #4facfe;
+    margin-bottom: 20px;
+}
+
+.error i {
+    font-size: 2rem;
+    color: #f44336;
+    margin-bottom: 20px;
+}
+
+.loading p, .error p {
+    font-size: 1rem;
+}
+
+/* Weather icon colors */
+.weather-sunny { color: #ffa726 !important; }
+.weather-cloudy { color: #78909c !important; }
+.weather-rainy { color: #42a5f5 !important; }
+.weather-snowy { color: #e1f5fe !important; }
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .weather-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .temperature {
+        font-size: 3rem;
+    }
+    
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+}
